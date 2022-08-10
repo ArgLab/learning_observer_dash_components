@@ -1,0 +1,11 @@
+include learning_observer_components/learning_observer_components.min.js
+include learning_observer_components/learning_observer_components.min.js.map
+include learning_observer_components/async-*.js
+include learning_observer_components/async-*.js.map
+include learning_observer_components/*-shared.js
+include learning_observer_components/*-shared.js.map
+include learning_observer_components/metadata.json
+include learning_observer_components/package-info.json
+include README.md
+include LICENSE
+include package.json
