@@ -16,8 +16,11 @@ Keyword arguments:
 - id (string; optional):
     The ID used to identify this component in Dash callbacks.
 
+- border (string; optional):
+    Border of the card.
+
 - class_name (string; optional):
-    A name that will be printed when this component is rendered.
+    Classes for the outer most card.
 
 - data (dict; optional):
     The data displayed on the card.
@@ -32,10 +35,10 @@ Keyword arguments:
     _namespace = 'learning_observer_components'
     _type = 'StudentOverviewCard'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, class_name=Component.UNDEFINED, name=Component.REQUIRED, data=Component.UNDEFINED, shown=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'class_name', 'data', 'name', 'shown']
+    def __init__(self, id=Component.UNDEFINED, class_name=Component.UNDEFINED, border=Component.UNDEFINED, name=Component.REQUIRED, data=Component.UNDEFINED, shown=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'border', 'class_name', 'data', 'name', 'shown']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'class_name', 'data', 'name', 'shown']
+        self.available_properties = ['id', 'border', 'class_name', 'data', 'name', 'shown']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

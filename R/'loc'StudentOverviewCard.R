@@ -1,9 +1,9 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 #' @export
-'loc'StudentOverviewCard <- function(id=NULL, class_name=NULL, data=NULL, name=NULL, shown=NULL) {
+'loc'StudentOverviewCard <- function(id=NULL, border=NULL, class_name=NULL, data=NULL, name=NULL, shown=NULL) {
     
-    props <- list(id=id, class_name=class_name, data=data, name=name, shown=shown)
+    props <- list(id=id, border=border, class_name=class_name, data=data, name=name, shown=shown)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -11,7 +11,7 @@
         props = props,
         type = 'StudentOverviewCard',
         namespace = 'learning_observer_components',
-        propNames = c('id', 'class_name', 'data', 'name', 'shown'),
+        propNames = c('id', 'border', 'class_name', 'data', 'name', 'shown'),
         package = 'learningObserverComponents'
         )
 

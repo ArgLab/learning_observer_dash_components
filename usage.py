@@ -7,7 +7,7 @@ import random
 
 app = dash.Dash(
     __name__,
-    external_stylesheets=[dbc.themes.MINTY]
+    external_stylesheets=[dbc.themes.MINTY, dbc.icons.FONT_AWESOME]
 )
 
 app.layout = html.Div([
@@ -25,7 +25,7 @@ app.layout = html.Div([
             },
             'text': 'This is some text, dont miss out on the Manwich Monday'
         },
-        shown=['transition_words', 'other_one', 'since_last_edit', 'text', 'metrics', 'indicators'],
+        shown=['transition_words', 'other_one', 'since_last_edit', 'sentences', 'text', 'metrics', 'indicators'],
         class_name='w-50'
     ),
     html.Div(id='times-clicked'),

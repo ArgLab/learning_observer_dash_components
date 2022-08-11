@@ -16,7 +16,14 @@
           "name": "string"
         },
         "required": false,
-        "description": "A name that will be printed when this component is rendered."
+        "description": "Classes for the outer most card."
+      },
+      "border": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Border of the card."
       },
       "name": {
         "type": {

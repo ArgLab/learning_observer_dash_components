@@ -10,13 +10,16 @@ ExampleComponent is an example component. It takes a property, `label`, and di
 }
 
 \usage{
-'loc'StudentOverviewCard(id=NULL, class_name=NULL, data=NULL, name=NULL, shown=NULL)
+'loc'StudentOverviewCard(id=NULL, border=NULL, class_name=NULL, data=NULL, name=NULL,
+shown=NULL)
 }
 
 \arguments{
 \item{id}{Character. The ID used to identify this component in Dash callbacks.}
 
-\item{class_name}{Character. A name that will be printed when this component is rendered.}
+\item{border}{Character. Border of the card.}
+
+\item{class_name}{Character. Classes for the outer most card.}
 
 \item{data}{Named list. The data displayed on the card.}
 
