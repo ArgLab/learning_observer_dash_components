@@ -20,8 +20,8 @@ app.layout = html.Div([
                 'other_one': {'id': 'other_one', 'label': 'Other', 'value': 1}
             },
             'metrics': {
-                'since_last_edit': {'id': 'since_last_edit', 'label': ' minutes since last edit', 'value': 100},
-                'sentences': {'id': 'sentences', 'label': ' sentences', 'value': 50}
+                'since_last_edit': {'id': 'since_last_edit', 'label': ' minutes since last edit', 'value': 100, 'help': 'Total number of minutes since last edit was made'},
+                'sentences': {'id': 'sentences', 'label': ' sentences', 'value': 50, 'help': 'Total number of sentences'}
             },
             'text': 'This is some text, dont miss out on the Manwich Monday'
         },

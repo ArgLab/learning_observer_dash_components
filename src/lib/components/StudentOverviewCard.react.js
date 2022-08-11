@@ -27,6 +27,7 @@ export default class StudentOverviewCard extends Component {
                     bg='info'
                     pill
                     className={shown.includes(key) ? 'm-1': 'd-none'}
+                    title={metric.help || metric.value}
                 >
                     {metric.value} {metric.label}
                 </Badge>
