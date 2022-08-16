@@ -7,10 +7,13 @@ import random
 
 app = dash.Dash(
     __name__,
-    external_stylesheets=[dbc.themes.MINTY, dbc.icons.FONT_AWESOME]
+    external_stylesheets=[
+        dbc.themes.MINTY,
+        dbc.icons.FONT_AWESOME
+    ]
 )
 
-app.layout = html.Div([
+app.layout = dbc.Container([
     loc.StudentOverviewCard(
         id='student1',
         name='John Doe',
@@ -29,7 +32,18 @@ app.layout = html.Div([
         class_name='w-50'
     ),
     html.Div(id='times-clicked'),
-    dbc.Button('Update data', id='btn')
+    dbc.Button('Update data', id='btn'),
+    html.Hr(className='my-5'),
+    loc.Carousel(
+        [
+            dbc.Card(f'bruh {i}', body=True, class_name='m-1')
+            for i in range(10)
+        ],
+        id='carousel',
+        slides_to_show=6,
+        slides_to_scroll=5,
+        infinite=False
+    )
 ])
 
 @callback(

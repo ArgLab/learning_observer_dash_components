@@ -1,4 +1,147 @@
 {
+  "src/lib/components/Carousel.react.js": {
+    "description": "Carosel is used to make pretty carousels\r\nNeed to include some extra css when using this",
+    "displayName": "Carousel",
+    "methods": [],
+    "props": {
+      "dots": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "Dots under carousel"
+      },
+      "arrows": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "Arrows to control carousel"
+      },
+      "infinite": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "If the carousel content will repeat in a loop"
+      },
+      "autoplay": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "If the carousel will start to play automatically"
+      },
+      "speed": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "Speed of autoplay"
+      },
+      "slides_to_show": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "How many slides you want to show"
+      },
+      "slides_to_scroll": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "How many slides will scroll when you swipe the carousel"
+      },
+      "center_mode": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "To centralize the carousel"
+      },
+      "center_padding": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": "Padding on the sides"
+      },
+      "swipe_to_slide": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "If you can slide to scroll the slides"
+      },
+      "variable_width": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "The slides width varies according to the screen size"
+      },
+      "responsive": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.array"
+        },
+        "required": false,
+        "description": "Settings of breakpoints"
+      },
+      "vertical": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "If your carousel is vertical"
+      },
+      "children": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.node"
+        },
+        "required": false,
+        "description": "Your carousel is vertical"
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": "Inline style of the component."
+      },
+      "class_name": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": "Style class of the component."
+      },
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": "Id of the element"
+      }
+    }
+  },
   "src/lib/components/StudentOverviewCard.react.js": {
     "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
     "displayName": "StudentOverviewCard",

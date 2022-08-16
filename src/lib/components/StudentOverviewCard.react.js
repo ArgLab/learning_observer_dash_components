@@ -41,13 +41,15 @@ export default class StudentOverviewCard extends Component {
                     key={key}
                     className={shown.includes(indicator.id) ? '': 'd-none'}
                 >
-                    {indicator.label}
+                    <div key='indicator-text' className='float-start d-inline'>
+                        {indicator.label}:
+                    </div>
                     <ProgressBar
-                        key={key}
                         max={3}
                         now={indicator.value}
                         variant={colors[(indicator.value-1)%3]}
                         title={`Proficiency in ${indicator.label}: ${levels[(indicator.value-1)%3]}`}
+                        className='w-75 float-end my-auto'
                     />
                 </div>
             )
