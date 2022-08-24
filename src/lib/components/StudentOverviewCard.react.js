@@ -34,22 +34,20 @@ export default class StudentOverviewCard extends Component {
             )
         })
 
-        const levels = ['Poor', 'Average', 'Good'];
         const indicator_bars = Object.entries(data.indicators).map(([key, indicator]) => {
+            console.log(indicator);
             return (
                 <div
                     key={key}
                     className={shown.includes(indicator.id) ? '': 'd-none'}
                 >
-                    <div key='indicator-text' className='float-start d-inline'>
+                    <span key='indicator-text'>
                         {indicator.label}:
-                    </div>
+                    </span>
                     <ProgressBar
-                        max={3}
                         now={indicator.value}
-                        variant={colors[(indicator.value-1)%3]}
-                        title={`Proficiency in ${indicator.label}: ${levels[(indicator.value-1)%3]}`}
-                        className='w-75 float-end my-auto'
+                        variant='info'
+                        title={indicator.help}
                     />
                 </div>
             )
@@ -95,7 +93,7 @@ export default class StudentOverviewCard extends Component {
                         {metric_badges}
                     </div>
                     <div key='text' className={shown.includes('text') ? 'student-card-text': 'd-none'}>
-                        {data.text}
+                        "bruh"
                     </div>
                     <div key='indicators' className={shown.includes('indicators') ? 'student-card-indicators': 'd-none'}>
                         {indicator_bars}

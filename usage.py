@@ -18,46 +18,79 @@ app.layout = dbc.Container([
         id='student1',
         name='John Doe',
         data={
-            'indicators': {
-                'transition_words': {'id': 'transition_words', 'label': 'Transitions', 'value': 3},
-                'other_one': {'id': 'other_one', 'label': 'Other', 'value': 1}
+            "text": {
+                "emotionwords": {
+                    "id": "emotionwords",
+                    "value": [
+                        "sweet",
+                        "sorry",
+                        "felt",
+                        "wonder",
+                        "hate",
+                        "want",
+                        "missing",
+                        "worry",
+                        "love"
+                    ],
+                    "label": "Emotion words used"
+                },
+                "concretedetails": {
+                    "id": "contretedetails",
+                    "value": [
+                        "hone",
+                        "yelled",
+                        "stairs",
+                        "daddy",
+                        "package",
+                        "pitch",
+                        "sack",
+                        "teller",
+                        "envelopes",
+                        "ding"
+                    ],
+                    "label": "Concrete details"
+                },
+                "transitionwords": {
+                    "id": "transitionwords",
+                    "value": [
+                        "in two weeks",
+                        "but",
+                        "still",
+                        "every day",
+                        "yet"
+                    ],
+                    "label": "Transitions used"
+                }
             },
-            'metrics': {
-                'since_last_edit': {'id': 'since_last_edit', 'label': ' minutes since last edit', 'value': 100, 'help': 'Total number of minutes since last edit was made'},
-                'sentences': {'id': 'sentences', 'label': ' sentences', 'value': 50, 'help': 'Total number of sentences'}
+            "metrics": {
+                "sentences": {
+                    "id": "sentences",
+                    "value": 33,
+                    "label": " sentences"
+                }
             },
-            'text': 'This is some text, dont miss out on the Manwich Monday'
+            "indicators": {
+                "transitions": {
+                    "id": "transitions",
+                    "value": 81,
+                    "label": "Transitions",
+                    "help": "Percentile based on total number of transitions used"
+                },
+                "academiclanguage": {
+                    "id": "academiclanguage",
+                    "value": 8,
+                    "label": "Academic Language",
+                    "help": "Percentile based on percent of academic language used"
+                }
+            }
         },
-        shown=['transition_words', 'other_one', 'since_last_edit', 'sentences', 'text', 'metrics', 'indicators'],
+        shown=['transitions', 'academiclanguage', 'sentences', 'text', 'metrics', 'indicators'],
         class_name='w-50'
     ),
     html.Div(id='times-clicked'),
     dbc.Button('Update data', id='btn'),
     html.Hr(className='my-5'),
-    loc.Carousel(
-        [
-            dbc.Card(f'bruh {i}', body=True, class_name='m-1')
-            for i in range(10)
-        ],
-        id='carousel',
-        slides_to_show=6,
-        slides_to_scroll=5,
-        infinite=False
-    )
 ])
-
-@callback(
-    Output('student1', 'data'),
-    Output('times-clicked', 'children'),
-    Input('btn', 'n_clicks'),
-    State('student1', 'data')
-)
-def test(clicks, data):
-    if not clicks:
-        raise PreventUpdate
-    data['indicators']['transition_words']['value'] = random.randint(1, 3)
-    data['metrics']['since_last_edit']['value'] += random.randint(0, 15)
-    return data, clicks
 
 
 if __name__ == '__main__':

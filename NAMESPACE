@@ -1,5 +1,7 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-export('loc'Carousel)
-export('loc'StudentOverviewCard)
+export(locCarousel)
+export(locStudentOverviewCard)
+export(Carousel)
 export(CourseCarousel)
+export(StudentOverviewCard)

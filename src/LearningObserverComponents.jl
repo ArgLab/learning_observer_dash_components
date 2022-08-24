@@ -5,8 +5,8 @@ using Dash
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.0.1"
 
-include("jl/'loc'_carousel.jl")
-include("jl/'loc'_studentoverviewcard.jl")
+include("jl/loc_carousel.jl")
+include("jl/loc_studentoverviewcard.jl")
 
 function __init__()
     DashBase.register_package(
