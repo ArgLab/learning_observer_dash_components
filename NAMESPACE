@@ -2,6 +2,7 @@
 
 export(locCarousel)
 export(locStudentOverviewCard)
+export(locStudentOverviewCardNoBars)
 export(Carousel)
 export(CourseCarousel)
 export(StudentOverviewCard)

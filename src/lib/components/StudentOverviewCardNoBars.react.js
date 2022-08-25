@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 /**
  * ExampleComponent is an example component.
@@ -13,12 +14,10 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
  * It renders an input with the property `value`
  * which is editable by the user.
  */
-export default class StudentOverviewCard extends Component {
+export default class StudentOverviewCardNoBars extends Component {
 
     render() {
         const {id, name, setProps, data, shown, class_name, border} = this.props;
-
-        const colors = ['danger', 'warning', 'success']
 
         const metric_badges = Object.entries(data.metrics).map(([key, metric]) => {
             return (
@@ -36,19 +35,21 @@ export default class StudentOverviewCard extends Component {
 
         const indicator_bars = Object.entries(data.indicators).map(([key, indicator]) => {
             return (
-                <div
+                <Col
                     key={key}
-                    className={shown.includes(indicator.id) ? '': 'd-none'}
+                    className={shown.includes(indicator.id) ? 'text-center': 'd-none'}
+                    title={indicator.help}
                 >
-                    <span key='indicator-text'>
+                    <div key='indicator-text'>
                         {indicator.label}:
-                    </span>
-                    <ProgressBar
-                        key='indicator-bar'
-                        now={indicator.value}
-                        title={`${indicator.value}% ${indicator.help}`}
-                    />
-                </div>
+                    </div>
+                    <div
+                        key='indicator-value'
+                        className='fs-5'
+                    >
+                        {indicator.value}%
+                    </div>
+                </Col>
             )
         })
 
@@ -110,8 +111,16 @@ export default class StudentOverviewCard extends Component {
                     <div key='text' className={shown.includes('text') ? 'student-card-text': 'd-none'}>
                         {text}
                     </div>
+                    <hr/>
                     <div key='indicators' className={shown.includes('indicators') ? 'student-card-indicators': 'd-none'}>
-                        {indicator_bars}
+                        <div key='indicator-label'>Percentiles:</div>
+                        <Row
+                            key='indiactor-items'
+                            xs={4}
+                            className='g-1 justify-content-evenly'
+                        >
+                            {indicator_bars}
+                        </Row>
                     </div>
                 </Card.Body>
             </Card>
@@ -119,9 +128,9 @@ export default class StudentOverviewCard extends Component {
     }
 }
 
-StudentOverviewCard.defaultProps = {};
+StudentOverviewCardNoBars.defaultProps = {};
 
-StudentOverviewCard.propTypes = {
+StudentOverviewCardNoBars.propTypes = {
     /**
      * The ID used to identify this component in Dash callbacks.
      */
