@@ -1,6 +1,6 @@
 {
   "src/lib/components/Carousel.react.js": {
-    "description": "Carosel is used to make pretty carousels\nNeed to include some extra css when using this",
+    "description": "Carosel is used to make pretty carousels\r\nNeed to include some extra css when using this",
     "displayName": "Carousel",
     "methods": [],
     "props": {
@@ -143,7 +143,7 @@
     }
   },
   "src/lib/components/StudentOverviewCard.react.js": {
-    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
     "displayName": "StudentOverviewCard",
     "methods": [],
     "props": {
@@ -194,12 +194,12 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
       }
     }
   },
   "src/lib/components/StudentOverviewCardNoBars.react.js": {
-    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
     "displayName": "StudentOverviewCardNoBars",
     "methods": [],
     "props": {
@@ -250,7 +250,7 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
       }
     }
   }

@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 /**
  * ExampleComponent is an example component.
@@ -36,19 +38,23 @@ export default class StudentOverviewCard extends Component {
 
         const indicator_bars = Object.entries(data.indicators).map(([key, indicator]) => {
             return (
-                <div
+                <Row
                     key={key}
-                    className={shown.includes(indicator.id) ? '': 'd-none'}
+                    xs={2}
+                    className={shown.includes(indicator.id) ? 'g-1 align-items-center': 'd-none'}
                 >
-                    <span key='indicator-text'>
+                    <Col key='indicator-text' className='small'>
                         {indicator.label}:
-                    </span>
-                    <ProgressBar
-                        key='indicator-bar'
-                        now={indicator.value}
-                        title={`${indicator.value}% ${indicator.help}`}
-                    />
-                </div>
+                    </Col>
+                    <Col>
+                        <ProgressBar
+                            key='indicator-bar'
+                            now={indicator.value}
+                            title={`${indicator.value}% ${indicator.help}`}
+                            variant={colors[Math.floor((indicator.value) / 34)]}
+                        />
+                    </Col>
+                </Row>
             )
         })
 

@@ -40,7 +40,7 @@ export default class StudentOverviewCardNoBars extends Component {
                     className={shown.includes(indicator.id) ? 'text-center': 'd-none'}
                     title={indicator.help}
                 >
-                    <div key='indicator-text'>
+                    <div key='indicator-text' className='small'>
                         {indicator.label}:
                     </div>
                     <div
@@ -111,12 +111,10 @@ export default class StudentOverviewCardNoBars extends Component {
                     <div key='text' className={shown.includes('text') ? 'student-card-text': 'd-none'}>
                         {text}
                     </div>
-                    <hr/>
                     <div key='indicators' className={shown.includes('indicators') ? 'student-card-indicators': 'd-none'}>
-                        <div key='indicator-label'>Percentiles:</div>
                         <Row
                             key='indiactor-items'
-                            xs={4}
+                            xs={3}
                             className='g-1 justify-content-evenly'
                         >
                             {indicator_bars}
