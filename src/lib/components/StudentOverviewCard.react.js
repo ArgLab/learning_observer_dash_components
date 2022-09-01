@@ -20,7 +20,12 @@ export default class StudentOverviewCard extends Component {
     render() {
         const {id, name, setProps, data, shown, class_name, border} = this.props;
 
-        const colors = ['danger', 'warning', 'success']
+        const indicator_colors = ['danger', 'warning', 'success'];
+        const highlight_colors = {
+            coresentences: 'success',
+            extendedcoresentences: 'danger',
+            contentsegments: 'warning'
+        }
 
         const metric_badges = Object.entries(data.metrics).map(([key, metric]) => {
             return (
@@ -51,24 +56,73 @@ export default class StudentOverviewCard extends Component {
                             key='indicator-bar'
                             now={indicator.value}
                             title={`${indicator.value}% ${indicator.help}`}
-                            variant={colors[Math.floor((indicator.value) / 34)]}
+                            variant={indicator_colors[Math.floor((indicator.value) / 34)]}
                         />
                     </Col>
                 </Row>
             )
         })
 
+        // determine the text highlights we want and put them in ascending order
+        const highlights = [];
+        let i = 0;
+        for (let [key, value] of Object.entries(data.highlight)) {
+            if (shown.includes(value.id)) {
+                for (const values of value.value) {
+                    highlights.push(
+                        {
+                            'start': values[0],
+                            'end': values[1],
+                            'color': highlight_colors[key]
+                        }
+                    );
+                }
+            }
+            i += 1;
+        }
+        highlights.sort((a, b) => a.start - b.start);
+
+        // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
+            let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
+            if (text.id === 'studenttext') {
+                // created highlighted text
+                if (shown.includes('highlight') & highlights.length > 0) {
+                    child = [];
+                    let start = 0;
+                    let end = 0;
+                    highlights.forEach(high => {
+                        start = high.start;
+                        if (start > end + 1) {
+                            child.push(
+                                <span key={`text-${end}-${start}`}>{text.value.slice(end, start)}</span>
+                            )
+                        }
+                        end = high.end;
+                        child.push(
+                            <span
+                                key={`text-${start}-${end}`}
+                                className={`bg-${high.color} bg-opacity-50`}
+                            >
+                                {text.value.slice(start,end+1)}
+                            </span>
+                        )
+                    })
+                    child.push(
+                        <span key='text-end'>{text.value.slice(end)}</span>
+                    )
+                }
+            }
             return (
                 <div
                     key={key}
                     className={shown.includes(text.id) ? '' : 'd-none'}
                 >
-                    <span key='text-label'>
+                    <span key='text-label' className={text.id === 'studenttext' ? 'd-none' : ''}>
                         {`${text.label}: `}
                     </span>
                     <span key='text-value'>
-                        {Array.isArray(text.value) ? text.value.join(', ') : text.value}
+                        {child}
                     </span>
                 </div>
             )
@@ -89,7 +143,7 @@ export default class StudentOverviewCard extends Component {
                         <Button
                             key='open-document'
                             variant='white'
-                            href={data.link || ''}
+                            href={data.link || '/document'}
                             target='_blank'
                             title="Student Document (opens new tab)"
                             className='text-body'
@@ -99,7 +153,7 @@ export default class StudentOverviewCard extends Component {
                         <Button
                             key='expand-student'
                             variant='white'
-                            href={`/student/${id}`} // TODO we might need to provide the course information to the student card to direct them to the right place OR we set a parameter for it
+                            href='/student' // TODO we might need to provide the course information to the student card to direct them to the right place OR we set a parameter for it
                             target='_blank'
                             title="Student Details (opens new tab)"
                             className='text-body'

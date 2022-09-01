@@ -61,6 +61,46 @@ data={
             "label": "Student text"
         }
     },
+    'highlight': {
+        "coresentences": {
+            "id": "coresentences",
+            "value": [
+                [
+                    0,
+                    13
+                ],
+                [
+                    20,
+                    25
+                ]
+            ],
+            "label": "Main ideas"
+        },
+        "extendedcoresentences": {
+            "id": "extendedcoresentences",
+            "value": [
+                [
+                    16,
+                    19
+                ],
+                [
+                    30,
+                    53
+                ],
+            ],
+            "label": "Supporting ideas"
+        },
+        "contentsegments": {
+            "id": "contentsegments",
+            "value": [
+                [
+                    55,
+                    72
+                ],
+            ],
+            "label": "Supporting ideas"
+        },
+    },
     "metrics": {
         "sentences": {
             "id": "sentences",
@@ -95,19 +135,12 @@ data={
         }
     }
 }
-shown = ['transitions', 'academiclanguage', 'sentences', 'nominalreferences', 'studenttext', 'transitionwords', 'text', 'metrics', 'indicators']
+shown = ['transitions', 'academiclanguage', 'sentences', 'nominalreferences', 'studenttext', 'transitionwords', 'text', 'metrics', 'indicators', 'coresentences', 'extendedcoresentences', 'highlight', 'contentsegments']
 app.layout = dbc.Container(
     [
         loc.StudentOverviewCard(
             id='student1',
             name='John Doe',
-            data=data,
-            shown=shown,
-            class_name='w-50'
-        ),
-        loc.StudentOverviewCardNoBars(
-            id='student2',
-            name='Jane Doe',
             data=data,
             shown=shown,
             class_name='w-50'
