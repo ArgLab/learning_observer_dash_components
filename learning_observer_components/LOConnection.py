@@ -3,8 +3,8 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class WebSocket(Component):
-    """A WebSocket component.
+class LOConnection(Component):
+    """A LOConnection component.
 A simple interface to
 
 Keyword arguments:
@@ -34,7 +34,7 @@ Keyword arguments:
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'learning_observer_components'
-    _type = 'WebSocket'
+    _type = 'LOConnection'
     @_explicitize_args
     def __init__(self, state=Component.UNDEFINED, message=Component.UNDEFINED, error=Component.UNDEFINED, send=Component.UNDEFINED, url=Component.UNDEFINED, key=Component.UNDEFINED, id=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'error', 'key', 'message', 'send', 'state', 'url']
@@ -46,4 +46,4 @@ Keyword arguments:
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args}
 
-        super(WebSocket, self).__init__(**args)
+        super(LOConnection, self).__init__(**args)

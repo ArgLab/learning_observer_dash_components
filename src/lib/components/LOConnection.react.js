@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * A simple interface to
  */
-export default class DashWebSocket extends Component {
+export default class LOConnection extends Component {
 
     encode_query_string(obj) {
         /*
@@ -102,11 +102,11 @@ export default class DashWebSocket extends Component {
 
 }
 
-DashWebSocket.defaultProps = {
+LOConnection.defaultProps = {
     state: {readyState: WebSocket.CONNECTING}
 }
 
-DashWebSocket.propTypes = {
+LOConnection.propTypes = {
 
     /**
      * This websocket state (in the readyState prop) and associated information.

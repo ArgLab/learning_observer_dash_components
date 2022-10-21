@@ -1,11 +1,11 @@
 from .Carousel import Carousel
+from .LOConnection import LOConnection
 from .StudentOverviewCard import StudentOverviewCard
 from .StudentOverviewCardNoBars import StudentOverviewCardNoBars
-from .WebSocket import WebSocket
 
 __all__ = [
     "Carousel",
+    "LOConnection",
     "StudentOverviewCard",
-    "StudentOverviewCardNoBars",
-    "WebSocket"
+    "StudentOverviewCardNoBars"
 ]

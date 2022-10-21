@@ -1,6 +1,6 @@
 {
   "src/lib/components/Carousel.react.js": {
-    "description": "Carosel is used to make pretty carousels\r\nNeed to include some extra css when using this",
+    "description": "Carosel is used to make pretty carousels\nNeed to include some extra css when using this",
     "displayName": "Carousel",
     "methods": [],
     "props": {
@@ -142,121 +142,9 @@
       }
     }
   },
-  "src/lib/components/StudentOverviewCard.react.js": {
-    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
-    "displayName": "StudentOverviewCard",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID used to identify this component in Dash callbacks."
-      },
-      "class_name": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Classes for the outer most card."
-      },
-      "border": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Border of the card."
-      },
-      "name": {
-        "type": {
-          "name": "string"
-        },
-        "required": true,
-        "description": "A name that will be printed when this component is rendered."
-      },
-      "data": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "The data displayed on the card."
-      },
-      "shown": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "The shown items displayed on the card."
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
-      }
-    }
-  },
-  "src/lib/components/StudentOverviewCardNoBars.react.js": {
-    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
-    "displayName": "StudentOverviewCardNoBars",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID used to identify this component in Dash callbacks."
-      },
-      "class_name": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Classes for the outer most card."
-      },
-      "border": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Border of the card."
-      },
-      "name": {
-        "type": {
-          "name": "string"
-        },
-        "required": true,
-        "description": "A name that will be printed when this component is rendered."
-      },
-      "data": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "The data displayed on the card."
-      },
-      "shown": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "The shown items displayed on the card."
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
-      }
-    }
-  },
-  "src/lib/components/WebSocket.react.js": {
+  "src/lib/components/LOConnection.react.js": {
     "description": "A simple interface to",
-    "displayName": "DashWebSocket",
+    "displayName": "LOConnection",
     "methods": [
       {
         "name": "encode_query_string",
@@ -369,7 +257,119 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/StudentOverviewCard.react.js": {
+    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "displayName": "StudentOverviewCard",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Classes for the outer most card."
+      },
+      "border": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Border of the card."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "A name that will be printed when this component is rendered."
+      },
+      "data": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The data displayed on the card."
+      },
+      "shown": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The shown items displayed on the card."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/StudentOverviewCardNoBars.react.js": {
+    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "displayName": "StudentOverviewCardNoBars",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Classes for the outer most card."
+      },
+      "border": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Border of the card."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "A name that will be printed when this component is rendered."
+      },
+      "data": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The data displayed on the card."
+      },
+      "shown": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The shown items displayed on the card."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
       }
     }
   }

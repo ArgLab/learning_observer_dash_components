@@ -1,10 +1,12 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-export('loc'Carousel)
-export('loc'StudentOverviewCard)
-export('loc'StudentOverviewCardNoBars)
-export('loc'WebSocket)
-export(CourseCarousel)
 export(locCarousel)
+export(locLOConnection)
 export(locStudentOverviewCard)
 export(locStudentOverviewCardNoBars)
+export(Carousel)
+export(WebSocket)
+export(StudentOverviewCardNoBars)
+export(StudentOverviewCard)
+export(CourseCarousel)
+export(locWebSocket)
