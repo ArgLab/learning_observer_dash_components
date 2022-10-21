@@ -25,10 +25,13 @@ export default class LOConnection extends Component {
     _init_client() {
         // Create a new client.
         let {url} = this.props;
-        const {key} = this.props;
-        const get_params = encode_query_string(key);
+        const {data_scope} = this.props;
+        const get_params = this.encode_query_string(data_scope);
         const protocol = {"http:": "ws:", "https:": "wss:"}[window.location.protocol];
-        url = url ? url : `${protocol}//${window.location.hostname}/wsapi/dashboard?${get_params}`;
+        url = url ? url : `${protocol}//${window.location.hostname}:${window.location.port}/wsapi/dashboard?${get_params}`;
+	console.log(data_scope);
+	console.log(get_params);
+	console.log(url);
         this.client = new WebSocket(url);
         // Listen for events.
         this.client.onopen = (e) => {
@@ -136,7 +139,7 @@ LOConnection.propTypes = {
     /**
      * Supported websocket key (optional).
      */
-    key: PropTypes.object,
+    data_scope: PropTypes.object,
 
     /**
      * The ID used to identify this component in Dash callbacks.
