@@ -253,5 +253,124 @@
         "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
       }
     }
+  },
+  "src/lib/components/WebSocket.react.js": {
+    "description": "A simple interface to",
+    "displayName": "DashWebSocket",
+    "methods": [
+      {
+        "name": "encode_query_string",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "obj",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "_init_client",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "state": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "This websocket state (in the readyState prop) and associated information.",
+        "defaultValue": {
+          "value": "{readyState: WebSocket.CONNECTING}",
+          "computed": false
+        }
+      },
+      "message": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "When messages are received, this property is updated with the message content."
+      },
+      "error": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "This property is set with the content of the onerror event."
+      },
+      "send": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "When this property is set, a message is sent with its content."
+      },
+      "url": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The websocket endpoint (e.g. wss://echo.websocket.org)."
+      },
+      "key": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Supported websocket key (optional)."
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
   }
 }

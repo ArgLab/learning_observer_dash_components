@@ -8,6 +8,7 @@ const version = "0.0.1"
 include("jl/'loc'_carousel.jl")
 include("jl/'loc'_studentoverviewcard.jl")
 include("jl/'loc'_studentoverviewcardnobars.jl")
+include("jl/'loc'_websocket.jl")
 
 function __init__()
     DashBase.register_package(

@@ -3,6 +3,7 @@
 export('loc'Carousel)
 export('loc'StudentOverviewCard)
 export('loc'StudentOverviewCardNoBars)
+export('loc'WebSocket)
 export(CourseCarousel)
 export(locCarousel)
 export(locStudentOverviewCard)
