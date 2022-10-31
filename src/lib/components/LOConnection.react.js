@@ -29,9 +29,6 @@ export default class LOConnection extends Component {
         const get_params = this.encode_query_string(data_scope);
         const protocol = {"http:": "ws:", "https:": "wss:"}[window.location.protocol];
         url = url ? url : `${protocol}//${window.location.hostname}:${window.location.port}/wsapi/dashboard?${get_params}`;
-	console.log(data_scope);
-	console.log(get_params);
-	console.log(url);
         this.client = new WebSocket(url);
         // Listen for events.
         this.client.onopen = (e) => {
@@ -91,9 +88,12 @@ export default class LOConnection extends Component {
                 this.client.send(send)
             }
         }
+        console.log(data_scope, prevProps.data_scope);
         // TODO: Maybe add support for changing the url?
         if (!_.isEqual(data_scope, prevProps.data_scope)) {
+            console.log('closing');
             this.client.close();
+            console.log('init client');
             this._init_client();
         }
     }
