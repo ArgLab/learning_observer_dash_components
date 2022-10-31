@@ -84,7 +84,7 @@ export default class LOConnection extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const {send} = this.props;
+        const {send, data_scope} = this.props;
         // Send messages.
         if (send && send !== prevProps.send) {
             if (this.props.state.readyState === WebSocket.OPEN) {
@@ -92,6 +92,10 @@ export default class LOConnection extends Component {
             }
         }
         // TODO: Maybe add support for changing the url?
+        if (!_.isEqual(data_scope, prevProps.data_scope)) {
+            this.client.close();
+            this._init_client();
+        }
     }
 
     componentWillUnmount() {
