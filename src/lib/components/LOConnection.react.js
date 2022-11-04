@@ -25,9 +25,17 @@ export default class LOConnection extends Component {
     _init_client() {
         // Create a new client.
         let {url} = this.props;
+
+        // Encode query string parameters
         const {data_scope} = this.props;
         const get_params = this.encode_query_string(data_scope);
         const params = (get_params ? `?${get_params}` : "")
+        // If no params exist return null, since we won't be able to connect
+        if (!params) {
+            return (null);
+        }
+
+        // Determine url
         const protocol = {"http:": "ws:", "https:": "wss:"}[window.location.protocol];
         url = url ? url : `${protocol}//${window.location.hostname}:${window.location.port}/wsapi/dashboard${params}`;
         this.client = new WebSocket(url);
