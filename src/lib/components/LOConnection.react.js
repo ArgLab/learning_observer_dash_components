@@ -30,10 +30,6 @@ export default class LOConnection extends Component {
         const {data_scope} = this.props;
         const get_params = this.encode_query_string(data_scope);
         const params = (get_params ? `?${get_params}` : "")
-        // If no params exist return null, since we won't be able to connect
-        if (!params) {
-            return (null);
-        }
 
         // Determine url
         const protocol = {"http:": "ws:", "https:": "wss:"}[window.location.protocol];
