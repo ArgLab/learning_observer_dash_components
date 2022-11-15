@@ -114,7 +114,7 @@ export default class StudentOverviewCard extends Component {
                     key={key}
                     className={shown.includes(text.id) ? '' : 'd-none'}
                 >
-                    <span key='text-label' className={text.id === 'studenttext' ? 'd-none' : ''}>
+                    <span key='text-label' className={text.id === 'student_text' ? 'd-none' : ''}>
                         {`${text.label}: `}
                     </span>
                     <span key='text-value'>
