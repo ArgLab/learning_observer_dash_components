@@ -21,11 +21,7 @@ export default class StudentOverviewCard extends Component {
         const {id, name, setProps, data, shown, class_name, border} = this.props;
 
         const indicator_colors = ['danger', 'warning', 'success'];
-        const highlight_colors = {
-            coresentences: 'success',
-            extendedcoresentences: 'danger',
-            contentsegments: 'warning'
-        }
+        const highlight_colors = ['success', 'danger', 'warning', 'info'];
 
         const metric_badges = Object.entries(data.metrics).map(([key, metric]) => {
             return (
@@ -72,8 +68,8 @@ export default class StudentOverviewCard extends Component {
                     highlights.push(
                         {
                             'start': values[0],
-                            'end': values[1],
-                            'color': highlight_colors[key]
+                            'end': values[0] + values[1],
+                            'color': highlight_colors[i % highlight_colors.length]
                         }
                     );
                 }
@@ -85,7 +81,7 @@ export default class StudentOverviewCard extends Component {
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
             let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
-            if (text.id === 'studenttext') {
+            if (text.id === 'student_text') {
                 // created highlighted text
                 if (shown.includes('highlight') & highlights.length > 0) {
                     child = [];

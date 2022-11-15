@@ -62,8 +62,7 @@ export default class LOConnection extends Component {
         }
         this.client.onerror = (e) => {
             // TODO: Implement error handling.
-            console.log('onerror', e);
-            // this.props.setProps({error: JSON.stringify(e)})
+            this.props.setProps({error: JSON.stringify(e)})
         }
         this.client.onclose = (e) => {
             // TODO: Add more properties here?
