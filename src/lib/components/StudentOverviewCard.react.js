@@ -100,7 +100,7 @@ export default class StudentOverviewCard extends Component {
                                 key={`text-${start}-${end}`}
                                 className={high.class}
                             >
-                                {text.value.slice(start,end+1)}
+                                {text.value.slice(start,end)}
                             </span>
                         )
                     })
