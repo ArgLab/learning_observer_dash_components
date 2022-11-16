@@ -69,7 +69,7 @@ export default class StudentOverviewCard extends Component {
                         {
                             'start': values[0],
                             'end': values[0] + values[1],
-                            'color': highlight_colors[i % highlight_colors.length]
+                            'class': key
                         }
                     );
                 }
@@ -98,7 +98,7 @@ export default class StudentOverviewCard extends Component {
                         child.push(
                             <span
                                 key={`text-${start}-${end}`}
-                                className={`bg-${high.color} bg-opacity-50`}
+                                className={high.class}
                             >
                                 {text.value.slice(start,end+1)}
                             </span>
