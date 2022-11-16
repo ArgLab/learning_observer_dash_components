@@ -21,7 +21,6 @@ export default class StudentOverviewCard extends Component {
         const {id, name, setProps, data, shown, class_name, border} = this.props;
 
         const indicator_colors = ['danger', 'warning', 'success'];
-        const highlight_colors = ['success', 'danger', 'warning', 'info'];
 
         const metric_badges = Object.entries(data.metrics).map(([key, metric]) => {
             return (
@@ -63,6 +62,7 @@ export default class StudentOverviewCard extends Component {
         const highlights = [];
         let i = 0;
         for (let [key, value] of Object.entries(data.highlight)) {
+            // TODO create the highlight even if its no in shown
             if (shown.includes(value.id)) {
                 for (const values of value.value) {
                     highlights.push(
@@ -99,6 +99,7 @@ export default class StudentOverviewCard extends Component {
                             <span
                                 key={`text-${start}-${end}`}
                                 className={high.class}
+                                style={{backgroundColor: 'transparent'}}
                             >
                                 {text.value.slice(start,end)}
                             </span>
