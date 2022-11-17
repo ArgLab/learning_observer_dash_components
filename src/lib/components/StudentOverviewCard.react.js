@@ -75,7 +75,10 @@ export default class StudentOverviewCard extends Component {
 
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
-            let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
+            const text_str = Array.isArray(text.value) ? text.value.join(', ') : text.value
+            let child = <span key={'text-overall'}>
+                {text_str}
+            </span>;
             if (text.id === 'student_text') {
                 // created highlighted text
                 if (shown.includes('highlight') & highlights.length > 0) {
