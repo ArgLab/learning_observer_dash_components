@@ -88,7 +88,7 @@ export default class StudentOverviewCard extends Component {
                     let classes = [];
                     for (let i = 0; i < breakpoints.length; i++) {
                         start = breakpoints[i];
-                        end = (i === breakpoints.length ? text.value.length : breakpoints[i+1]);
+                        end = (i === breakpoints.length-1 ? text.value.length : breakpoints[i+1]);
                         text_slice = text.value.slice(start, end);
                         classes = [];
                         classes = highlights.reduce((acc, [s, e, c]) => {
