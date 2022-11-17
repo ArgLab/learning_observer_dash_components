@@ -78,6 +78,7 @@ export default class StudentOverviewCard extends Component {
             let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
             if (text.id === 'student_text') {
                 // created highlighted text
+                console.log(text.value, text.value.length);
                 if (shown.includes('highlight') & highlights.length > 0) {
                     child = new Array();
                     let text_slice = '';
@@ -86,7 +87,6 @@ export default class StudentOverviewCard extends Component {
                     let classes = [];
                     for (let i = 0; i < breakpoints.length; i++) {
                         start = breakpoints[i];
-                        console.log(text.value, text.value.length);
                         end = (i === breakpoints.length-1 ? text.value.length : breakpoints[i+1]);
                         text_slice = text.value.slice(start, end);
                         classes = [];
