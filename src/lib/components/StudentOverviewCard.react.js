@@ -76,8 +76,6 @@ export default class StudentOverviewCard extends Component {
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
             let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
-            console.log('--------');
-            console.log(child);
             if (text.id === 'student_text') {
                 // created highlighted text
                 if (shown.includes('highlight') & highlights.length > 0) {
@@ -96,7 +94,6 @@ export default class StudentOverviewCard extends Component {
                                 acc.push(c);
                             return acc;
                         }, [])
-                        console.log(start, end)
                         child.push(
                             <span
                                 key={`text-${start}-${end}`}
@@ -108,7 +105,6 @@ export default class StudentOverviewCard extends Component {
                     }
                 }
             }
-            console.log(child);
             return (
                 <div
                     key={key}
