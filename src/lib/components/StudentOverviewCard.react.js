@@ -75,11 +75,11 @@ export default class StudentOverviewCard extends Component {
 
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
-            let child = [];
+            let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
             if (text.id === 'student_text') {
                 // created highlighted text
                 if (shown.includes('highlight') & highlights.length > 0) {
-                    child = [];
+                    child = new Array();
                     let text_slice = '';
                     let start = 0;
                     let end = 0;
@@ -105,7 +105,7 @@ export default class StudentOverviewCard extends Component {
                     }
                 }
             } else {
-                child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
+                
             }
             return (
                 <div
