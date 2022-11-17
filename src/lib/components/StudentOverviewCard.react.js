@@ -72,6 +72,7 @@ export default class StudentOverviewCard extends Component {
         }
         highlights.sort((a, b) => a[0] - b[0]);
         const breakpoints = Array.from(breakpoints_set).sort();
+        console.log(breakpoints);
 
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
@@ -91,7 +92,6 @@ export default class StudentOverviewCard extends Component {
                         end = (i === breakpoints.length-1 ? text.value.length : breakpoints[i+1]);
                         text_slice = text.value.slice(start, end);
                         classes = [];
-                        console.log(start, end, text.value.length);
                         classes = highlights.reduce((acc, [s, e, c]) => {
                             if (s <= start && e >= end)
                                 acc.push(c);
