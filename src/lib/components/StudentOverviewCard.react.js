@@ -118,7 +118,7 @@ export default class StudentOverviewCard extends Component {
                             {text_str}
                         </span>
                         <span key='text-highlight' className={shown.includes('highlight') ? '': 'd-none'}>
-                            child
+                            {child}
                         </span>
                     </span>
                 </div>
