@@ -75,14 +75,11 @@ export default class StudentOverviewCard extends Component {
 
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
-            const text_str = Array.isArray(text.value) ? text.value.join(', ') : text.value
-            let child = <span key={'text-overall'}>
-                {text_str}
-            </span>;
+            const text_str = Array.isArray(text.value) ? text.value.join(', ') : text.value;
+            let child = new Array();
             if (text.id === 'student_text') {
                 // created highlighted text
                 if (shown.includes('highlight') & highlights.length > 0) {
-                    child = new Array();
                     let text_slice = '';
                     let start = 0;
                     let end = 0;
@@ -107,8 +104,6 @@ export default class StudentOverviewCard extends Component {
                         )                        
                     }
                 }
-            } else {
-                
             }
             return (
                 <div
@@ -119,7 +114,7 @@ export default class StudentOverviewCard extends Component {
                         {`${text.label}: `}
                     </span>
                     <span key='text-value'>
-                        {child}
+                        {(child.length === 0) ? text_str : child}
                     </span>
                 </div>
             )
