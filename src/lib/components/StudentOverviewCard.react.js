@@ -64,25 +64,11 @@ export default class StudentOverviewCard extends Component {
         breakpoints_set.add(0);
         let i = 0;
         for (let [key, value] of Object.entries(data.highlight)) {
-            // TODO create the highlight even if its no in shown
             for (const values of value.value) {
                 breakpoints_set.add(values[0]);
                 breakpoints_set.add(values[0] + values[1]);
                 highlights.push([values[0], values[0]+values[1], key])
             }
-            // TODO remove the following
-            // if (shown.includes(value.id)) {
-            //     for (const values of value.value) {
-            //         highlights.push(
-            //             {
-            //                 'start': values[0],
-            //                 'end': values[0] + values[1],
-            //                 'class': key
-            //             }
-            //         );
-            //     }
-            // }
-            // i += 1;
         }
         highlights.sort((a, b) => a[0] - b[0]);
         const breakpoints = Array.from(breakpoints_set).sort();
@@ -103,7 +89,6 @@ export default class StudentOverviewCard extends Component {
                         end = (i === breakpoints.length ? text.value.length : breakpoints[i+1]);
                         text_slice = text.value.slice(start, end);
                         classes = [];
-                        // TODO check classes
                         classes = highlights.reduce((acc, [s, e, c]) => {
                             if (s <= start && e >= end)
                                 acc.push(c);
@@ -113,7 +98,6 @@ export default class StudentOverviewCard extends Component {
                             <span
                                 key={`text-${start}-${end}`}
                                 className={classes.join(' ')}
-                                style={{backgroundColor: 'transparent'}}
                             >
                                 {text_slice}
                             </span>
