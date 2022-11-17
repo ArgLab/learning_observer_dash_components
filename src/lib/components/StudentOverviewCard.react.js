@@ -71,22 +71,19 @@ export default class StudentOverviewCard extends Component {
             }
         }
         highlights.sort((a, b) => a[0] - b[0]);
-        const breakpoints = Array.from(breakpoints_set).sort();
-        console.log(breakpoints);
+        const breakpoints = Array.from(breakpoints_set).sort(function(a, b){return a - b});
 
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
             let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
             if (text.id === 'student_text') {
                 // created highlighted text
-                console.log(text.value, text.value.length);
                 if (shown.includes('highlight') & highlights.length > 0) {
                     child = new Array();
                     let text_slice = '';
                     let start = 0;
                     let end = 0;
                     let classes = [];
-                    console.log('-------');
                     for (let i = 0; i < breakpoints.length; i++) {
                         start = breakpoints[i];
                         end = (i === breakpoints.length-1 ? text.value.length : breakpoints[i+1]);
@@ -106,7 +103,6 @@ export default class StudentOverviewCard extends Component {
                             </span>
                         )                        
                     }
-                    console.log('-------');
                 }
             }
             return (
