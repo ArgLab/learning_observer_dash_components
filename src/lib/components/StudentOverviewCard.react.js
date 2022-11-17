@@ -75,11 +75,11 @@ export default class StudentOverviewCard extends Component {
 
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
-            const text_str = Array.isArray(text.value) ? text.value.join(', ') : text.value;
-            let child = new Array();
+            let child = Array.isArray(text.value) ? text.value.join(', ') : text.value;
             if (text.id === 'student_text') {
                 // created highlighted text
                 if (shown.includes('highlight') & highlights.length > 0) {
+                    child = new Array();
                     let text_slice = '';
                     let start = 0;
                     let end = 0;
@@ -89,6 +89,7 @@ export default class StudentOverviewCard extends Component {
                         end = (i === breakpoints.length-1 ? text.value.length : breakpoints[i+1]);
                         text_slice = text.value.slice(start, end);
                         classes = [];
+                        console.log(start, end, text.value.length);
                         classes = highlights.reduce((acc, [s, e, c]) => {
                             if (s <= start && e >= end)
                                 acc.push(c);
@@ -114,12 +115,7 @@ export default class StudentOverviewCard extends Component {
                         {`${text.label}: `}
                     </span>
                     <span key='text-value'>
-                        <span key='text-blank' className={shown.includes('highlight') ? 'd-none': ''}>
-                            {text_str}
-                        </span>
-                        <span key='text-highlight' className={shown.includes('highlight') ? '': 'd-none'}>
-                            {child}
-                        </span>
+                        {child}
                     </span>
                 </div>
             )
