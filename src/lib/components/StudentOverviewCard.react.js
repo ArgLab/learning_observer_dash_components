@@ -60,23 +60,32 @@ export default class StudentOverviewCard extends Component {
 
         // determine the text highlights we want and put them in ascending order
         const highlights = [];
+        const breakpoints_set = new Set();
+        breakpoints_set.add(0);
         let i = 0;
         for (let [key, value] of Object.entries(data.highlight)) {
             // TODO create the highlight even if its no in shown
-            if (shown.includes(value.id)) {
-                for (const values of value.value) {
-                    highlights.push(
-                        {
-                            'start': values[0],
-                            'end': values[0] + values[1],
-                            'class': key
-                        }
-                    );
-                }
+            for (const values of value.value) {
+                breakpoints_set.add(values[0]);
+                breakpoints_set.add(values[0] + values[1]);
+                highlights.push([values[0], values[0]+values[1], key])
             }
-            i += 1;
+            // TODO remove the following
+            // if (shown.includes(value.id)) {
+            //     for (const values of value.value) {
+            //         highlights.push(
+            //             {
+            //                 'start': values[0],
+            //                 'end': values[0] + values[1],
+            //                 'class': key
+            //             }
+            //         );
+            //     }
+            // }
+            // i += 1;
         }
-        highlights.sort((a, b) => a.start - b.start);
+        highlights.sort((a, b) => a[0] - b[0]);
+        const breakpoints = Array.from(breakpoints_set).sort();
 
         // prep text data
         const text = Object.entries(data.text).map(([key, text]) => {
@@ -85,29 +94,31 @@ export default class StudentOverviewCard extends Component {
                 // created highlighted text
                 if (shown.includes('highlight') & highlights.length > 0) {
                     child = [];
+                    let text_slice = '';
                     let start = 0;
                     let end = 0;
-                    highlights.forEach(high => {
-                        start = high.start;
-                        if (start > end + 1) {
-                            child.push(
-                                <span key={`text-${end}-${start}`}>{text.value.slice(end, start)}</span>
-                            )
-                        }
-                        end = high.end;
+                    let classes = [];
+                    for (let i = 0; i < breakpoints.length; i++) {
+                        start = breakpoints[i];
+                        end = (i === breakpoints.length ? text.value.length : breakpoints[i+1]);
+                        text_slice = text.value.slice(start, end);
+                        classes = [];
+                        // TODO check classes
+                        classes = highlights.reduce((acc, [s, e, c]) => {
+                            if (s <= start && e >= end)
+                                acc.push(c);
+                            return acc;
+                        }, [])
                         child.push(
                             <span
                                 key={`text-${start}-${end}`}
-                                className={high.class}
+                                className={classes.join(' ')}
                                 style={{backgroundColor: 'transparent'}}
                             >
-                                {text.value.slice(start,end)}
+                                {text_slice}
                             </span>
-                        )
-                    })
-                    child.push(
-                        <span key='text-end'>{text.value.slice(end)}</span>
-                    )
+                        )                        
+                    }
                 }
             }
             return (
