@@ -66,7 +66,7 @@ export default class StudentOverviewCard extends Component {
         for (let [key, value] of Object.entries(data.highlight)) {
             for (const values of value.value) {
                 breakpoints_set.add(values[0]);
-                breakpoints_set.add(values[0] + values[1]);
+                breakpoints_set.add(values[1]);
                 highlights.push([values[0], values[0]+values[1], key])
             }
         }
@@ -85,6 +85,7 @@ export default class StudentOverviewCard extends Component {
                     let start = 0;
                     let end = 0;
                     let classes = [];
+                    console.log('-------');
                     for (let i = 0; i < breakpoints.length; i++) {
                         start = breakpoints[i];
                         end = (i === breakpoints.length-1 ? text.value.length : breakpoints[i+1]);
@@ -105,6 +106,7 @@ export default class StudentOverviewCard extends Component {
                             </span>
                         )                        
                     }
+                    console.log('-------');
                 }
             }
             return (
