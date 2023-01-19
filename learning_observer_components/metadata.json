@@ -1,147 +1,4 @@
 {
-  "src/lib/components/Carousel.react.js": {
-    "description": "Carosel is used to make pretty carousels\nNeed to include some extra css when using this",
-    "displayName": "Carousel",
-    "methods": [],
-    "props": {
-      "dots": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "Dots under carousel"
-      },
-      "arrows": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "Arrows to control carousel"
-      },
-      "infinite": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "If the carousel content will repeat in a loop"
-      },
-      "autoplay": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "If the carousel will start to play automatically"
-      },
-      "speed": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.number"
-        },
-        "required": false,
-        "description": "Speed of autoplay"
-      },
-      "slides_to_show": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.number"
-        },
-        "required": false,
-        "description": "How many slides you want to show"
-      },
-      "slides_to_scroll": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.number"
-        },
-        "required": false,
-        "description": "How many slides will scroll when you swipe the carousel"
-      },
-      "center_mode": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "To centralize the carousel"
-      },
-      "center_padding": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
-        },
-        "required": false,
-        "description": "Padding on the sides"
-      },
-      "swipe_to_slide": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "If you can slide to scroll the slides"
-      },
-      "variable_width": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "The slides width varies according to the screen size"
-      },
-      "responsive": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.array"
-        },
-        "required": false,
-        "description": "Settings of breakpoints"
-      },
-      "vertical": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
-        },
-        "required": false,
-        "description": "If your carousel is vertical"
-      },
-      "children": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.node"
-        },
-        "required": false,
-        "description": "Your carousel is vertical"
-      },
-      "style": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.object"
-        },
-        "required": false,
-        "description": "Inline style of the component."
-      },
-      "class_name": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
-        },
-        "required": false,
-        "description": "Style class of the component."
-      },
-      "id": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
-        },
-        "required": false,
-        "description": "Id of the element"
-      }
-    }
-  },
   "src/lib/components/LOConnection.react.js": {
     "description": "A simple interface to",
     "displayName": "LOConnection",
@@ -257,12 +114,162 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/LOIndicatorBars.react.js": {
+    "description": "LOIndicatorBars provide progress bars.\r\nIt takes a property, `data`, and\r\noutputs each item as a label/progress bar pair.\r\nIf the id of the item is not in the property `shown`,\r\nit will not appear.",
+    "displayName": "LOIndicatorBars",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Classes for the outer most div."
+      },
+      "data": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Data for the metrics should be in form:\r\n`{\r\n            \"transitions\": {\r\n                \"id\": \"transitions\",\r\n                \"value\": 81,\r\n                \"label\": \"Transitions\",\r\n                \"help\": \"Percentile based on total number of transitions used\"\r\n            },\r\n        }`",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "shown": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Which ids to show.",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/LOMetrics.react.js": {
+    "description": "LOMetrics creates badges for numeric values.\r\nIt takes a property, `data`, and\r\noutputs each item as a badge.\r\nIf the id of the item is not in the property `shown`,\r\nit will not appear.",
+    "displayName": "LOMetrics",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Classes for the outer most div."
+      },
+      "data": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Data for the metrics should be in form:\r\n`{\r\n            \"sentences\": {\r\n                \"id\": \"sentences\",\r\n                \"value\": 33,\r\n                \"label\": \" sentences\"\r\n            },\r\n        }`",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "shown": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Which ids to show.",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/LOTextHighlight.react.js": {
+    "description": "LOTextHighlight provides breakpoints and classes to allow for later highlighting.\r\nIt takes a property, `text`, and\r\nand breaks it up based on all possible breakpoints in property `highlight_breakpoints`.\r\nThe text is output as a variety of spans with classnames corresponding to ids.",
+    "displayName": "LOTextHighlight",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "class_name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Classes for the outer most div."
+      },
+      "text": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The text to be highlighted.",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "highlight_breakpoints": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "highlight breakpoints in the form of:\r\n`{\r\n            \"coresentences\": {\r\n                \"id\": \"coresentences\",\r\n                \"value\": [\r\n                    [\r\n                        0,\r\n                        13\r\n                    ],\r\n                    [\r\n                        20,\r\n                        25\r\n                    ]\r\n                ],\r\n                \"label\": \"Main ideas\"\r\n            },\r\n        }`",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
       }
     }
   },
   "src/lib/components/StudentOverviewCard.react.js": {
-    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
     "displayName": "StudentOverviewCard",
     "methods": [],
     "props": {
@@ -313,63 +320,7 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
-      }
-    }
-  },
-  "src/lib/components/StudentOverviewCardNoBars.react.js": {
-    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
-    "displayName": "StudentOverviewCardNoBars",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID used to identify this component in Dash callbacks."
-      },
-      "class_name": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Classes for the outer most card."
-      },
-      "border": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Border of the card."
-      },
-      "name": {
-        "type": {
-          "name": "string"
-        },
-        "required": true,
-        "description": "A name that will be printed when this component is rendered."
-      },
-      "data": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "The data displayed on the card."
-      },
-      "shown": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "The shown items displayed on the card."
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
       }
     }
   }

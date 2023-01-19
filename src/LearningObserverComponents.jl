@@ -5,10 +5,11 @@ using Dash
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.0.1"
 
-include("jl/'loc'_carousel.jl")
 include("jl/'loc'_loconnection.jl")
+include("jl/'loc'_loindicatorbars.jl")
+include("jl/'loc'_lometrics.jl")
+include("jl/'loc'_lotexthighlight.jl")
 include("jl/'loc'_studentoverviewcard.jl")
-include("jl/'loc'_studentoverviewcardnobars.jl")
 
 function __init__()
     DashBase.register_package(

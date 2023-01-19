@@ -1,11 +1,13 @@
-from .Carousel import Carousel
 from .LOConnection import LOConnection
+from .LOIndicatorBars import LOIndicatorBars
+from .LOMetrics import LOMetrics
+from .LOTextHighlight import LOTextHighlight
 from .StudentOverviewCard import StudentOverviewCard
-from .StudentOverviewCardNoBars import StudentOverviewCardNoBars
 
 __all__ = [
-    "Carousel",
     "LOConnection",
-    "StudentOverviewCard",
-    "StudentOverviewCardNoBars"
+    "LOIndicatorBars",
+    "LOMetrics",
+    "LOTextHighlight",
+    "StudentOverviewCard"
 ]

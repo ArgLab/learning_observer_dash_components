@@ -1,10 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-export('loc'Carousel)
 export('loc'LOConnection)
+export('loc'LOIndicatorBars)
+export('loc'LOMetrics)
+export('loc'LOTextHighlight)
 export('loc'StudentOverviewCard)
-export('loc'StudentOverviewCardNoBars)
+export(Carousel)
 export(CourseCarousel)
+export(StudentOverviewCardNoBars)
 export(locCarousel)
 export(locStudentOverviewCard)
 export(locStudentOverviewCardNoBars)
