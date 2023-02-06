@@ -18,13 +18,17 @@ export default class LOTextHighlight extends Component {
         const breakpoints_set = new Set();
         breakpoints_set.add(0);
         let i = 0;
+        // Iterate over all highlight offsets and add each possible start/end
+        // index to a set `breakpoints_set`
+        // Also add the start, end, and id to highlights
         for (let [key, value] of Object.entries(highlight_breakpoints)) {
             for (const values of value.value) {
                 breakpoints_set.add(values[0]);
-                breakpoints_set.add(values[1]);
+                breakpoints_set.add(values[0]+values[1]);
                 highlights.push([values[0], values[0]+values[1], key])
             }
         }
+        // Sort highlights and breakpoints by index in ascending order
         highlights.sort((a, b) => a[0] - b[0]);
         const breakpoints = Array.from(breakpoints_set).sort(function(a, b){return a - b});
 
@@ -36,11 +40,14 @@ export default class LOTextHighlight extends Component {
             let start = 0;
             let end = 0;
             let classes = [];
+            // Iterate over all possible breakpoints to build spans for highlighting
+            // 1. Slice text from start to end
+            // 2. Add a class for each possible highlight item (reduce)
+            // 3. Add span with text and classes to `child`
             for (let i = 0; i < breakpoints.length; i++) {
                 start = breakpoints[i];
                 end = (i === breakpoints.length-1 ? text.length : breakpoints[i+1]);
                 text_slice = text.slice(start, end);
-                classes = [];
                 classes = highlights.reduce((acc, [s, e, c]) => {
                     if (s <= start && e >= end)
                         acc.push(c);

@@ -1,6 +1,7 @@
 import learning_observer_components as loc
 import dash
-from dash import html
+from dash import html, callback, Output, Input
+from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 
 app = dash.Dash(
@@ -106,8 +107,7 @@ app.layout = dbc.Container(
         # ),
         loc.LOMetrics(
             id='metrics',
-            data=data["metrics"],
-            shown=shown
+            data=data["metrics"]
         ),
         loc.LOIndicatorBars(
             id='indicators',
@@ -125,6 +125,18 @@ app.layout = dbc.Container(
     ],
     fluid=True
 )
+
+@callback(
+    Output('metrics', 'shown'),
+    Input('btn', 'n_clicks')
+)
+def update(n):
+    if n is None:
+        raise PreventUpdate
+    if n % 2 == 1:
+        return ['sentences']
+    else:
+        return []
 
 
 if __name__ == '__main__':
