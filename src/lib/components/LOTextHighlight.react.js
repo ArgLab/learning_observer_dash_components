@@ -53,14 +53,23 @@ export default class LOTextHighlight extends Component {
                         acc.push(c);
                     return acc;
                 }, [])
+                // spans will auto clip extra whitespace including new lines
+                // so we have to split the text on new lines then add in a <br/>
+                // on the final split of new lines, we do NOT add the <br/>
+                const text_newline_split = text_slice.split('\n');
                 child.push(
                     <span
                         key={`text-${start}-${end}`}
                         className={classes.join(' ')}
                     >
-                        {text_slice}
+                        {text_newline_split.length === 1 ? text_slice : text_newline_split.map((line, i) => (
+                            <span key={i}>
+                                {line}
+                                {i === text_newline_split.length-1 ? '' : <br/>}
+                            </span>
+                        ))}
                     </span>
-                )                        
+                )
             }
         }
         return (
