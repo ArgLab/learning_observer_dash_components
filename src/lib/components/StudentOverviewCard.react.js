@@ -9,11 +9,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 /**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
+ * StudentOverviewCard
+ *
+ * This is the main card for a student in the Writing Observer dashboard.
+ *
+ * The key parameter passed in is data.
+ *
+ * - data.metrics variable generates a badge component for each metric object.
+ * - data.indicators generates a progress-style bar for each indicator object.
+ * - data.highlights variable is used to determine which parts of the student's text should be highlighted
  */
 export default class StudentOverviewCard extends Component {
 

@@ -2,10 +2,19 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * LOTextHighlight provides breakpoints and classes to allow for later highlighting.
- * It takes a property, `text`, and
- * and breaks it up based on all possible breakpoints in property `highlight_breakpoints`.
- * The text is output as a variety of spans with classnames corresponding to ids.
+ * LOTextHighlight provides breakpoints and classes to allow for later
+ * highlighting.  It takes a property, `text`, and and breaks it up
+ * based on all possible breakpoints in property
+ * `highlight_breakpoints`.  The text is output as a variety of spans
+ * with classnames corresponding to ids.
+ *
+ * @param {string} text - The text to be highlighted
+ * @param {Object} highlight_breakpoints - An object specifying the breakpoints for highlighting. The keys should be unique IDs and the values should be objects with the following properties:
+ *      - `id`: The unique ID for this set of highlight breakpoints
+ *      - `value`: An array of `[start, length]` tuples specifying the start index and length of each highlight. The tuples should be sorted in ascending order by start index.
+ *      - `label` (optional): A label to be used in combination with the highlight ID for customizing styling.
+ * @param {string} [class_name] - Additional class name(s) to apply to the rendered component
+ * @param {string} [id] - ID to apply to the rendered component
  */
 export default class LOTextHighlight extends Component {
 
