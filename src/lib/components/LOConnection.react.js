@@ -2,10 +2,24 @@ import {Component} from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * A simple interface to
+ * LOConnection is a simple interface to the Learning Observer (LO)
+ * WebSocket API.
+ *
+ * LOConnection is designed to act as a bridge, enabling users to
+ * write dashboards using the Dash and Plotly libraries within
+ * LO. This component takes in several props, including the websocket
+ * endpoint URL, a data_scope dictionary, and a setProps callback
+ * function that should be called to report property changes to Dash.
+ * Once mounted, LOConnection listens for events, including onopen,
+ * onmessage, onerror, and onclose, and updates the state and message
+ * props accordingly. The component also includes an
+ * encode_query_string function, which is used to create a query
+ * string from a dictionary.
+ *
+ * We are planning to evolve this into a more complete protocol. That's
+ * still in progress.
  */
 export default class LOConnection extends Component {
-
     encode_query_string(obj) {
         /*
            Create a query string from a dictionary
@@ -22,6 +36,23 @@ export default class LOConnection extends Component {
         return str.join("&");
     }
 
+    /* Initialize a new WebSocket client.
+
+       This function creates a new WebSocket client and sets up event
+       listeners for it. The URL of the WebSocket server is determined
+       by the `url` prop, or, if not provided, it is constructed using
+       the current location and query string parameters.
+
+       Parameters:
+       - None
+
+       Returns:
+       - None
+
+       Side effects:
+       - Creates a new WebSocket client and sets up event listeners for it.
+       - Updates the component's props with information about the WebSocket connection state, incoming messages, and errors.
+    */
     _init_client() {
         // Create a new client.
         let {url} = this.props;
@@ -80,15 +111,40 @@ export default class LOConnection extends Component {
             })
         }
     }
+  
+    /* Initialize the component.
 
+       For now, Initializes a WebSocket client and sets up event
+       listeners for various WebSocket events, via _init_client. This
+       method is called after the component is mounted (i.e., inserted
+       into the DOM).
+    */
     componentDidMount() {
         this._init_client()
     }
 
+    /*  React/Dash lifecycle method called after a component updates
+        (e.g. a new message is inserted). It is used here to send
+        messages and re-initialize the WebSocket client when the
+        component's props change.
+
+        Args:
+        - prevProps: the previous props of the component.
+
+        Sends messages:
+        - If the 'send' prop is truthy and different from its previous value, and the WebSocket
+          connection is open, the 'send' prop is sent as a message through the WebSocket client.
+
+        Re-initializes the WebSocket client:
+        - If the 'data_scope' prop has changed from its previous value, the WebSocket connection
+          is closed and re-initialized with the new 'data_scope' value by calling '_init_client'.
+    */
     componentDidUpdate(prevProps) {
         const {send, data_scope} = this.props;
         // Send messages.
         if (send && send !== prevProps.send) {
+            // Check if the WebSocket is open before sending the message. If not, we'll get called
+            // again when props change when it opens.
             if (this.props.state.readyState === WebSocket.OPEN) {
                 this.client.send(send)
             }

@@ -22,7 +22,7 @@
     "build:activated": "npm run build:js && npm run build:backends-activated"
   },
   "author": "Bradley Erickson <bbwe24@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "AGPL-3.0",
   "dependencies": {
     "bootstrap": "^5.2.0",
     "ramda": "^0.26.1",

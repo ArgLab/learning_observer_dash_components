@@ -3,11 +3,22 @@ import PropTypes from 'prop-types';
 import Badge from 'react-bootstrap/Badge';
 
 /**
- * LOMetrics creates badges for numeric values.
- * It takes a property, `data`, and
- * outputs each item as a badge.
- * If the id of the item is not in the property `shown`,
- * it will not appear.
+ * A React / dash / LO component that creates badges for numeric
+ * values. It takes a set of properties and outputs each item as a
+ * badge. If the ID of the item is not in the property `shown`, it
+ * will not appear.
+ *
+ * @param {string} id - The ID of the component.
+ * @param {function} setProps - A function that can be called to set the properties of the component.
+ * @param {Object} data - An object containing the data to be displayed as badges. The keys are the IDs of the metrics
+ * and the values are objects containing the following properties:
+ *    - value: the numeric value of the metric
+ *    - label: a label to be displayed next to the value
+ *    - help: (optional) additional information to be displayed as a tooltip
+ * @param {Array<string>} shown - An array of metric IDs to be displayed as badges.
+ * @param {string} class_name - An optional CSS class to be added to the component.
+ *
+ * @returns {ReactNode} A React component that displays the metrics as badges.
  */
 export default class LOMetrics extends Component {
 
